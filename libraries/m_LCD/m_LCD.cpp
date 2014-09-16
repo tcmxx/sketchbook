@@ -235,6 +235,9 @@
 			}
 		}
 
+		//cmdWrite4(unsigend char)
+		//write only 4 MSB bits of input to LCD bus
+		//cmd: cmd to write
 		void LCD::cmdWrite4(unsigned char cmd){
 				 digitalWrite(RS,0);
 				 digitalWrite(RW,0);
