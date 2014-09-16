@@ -1,0 +1,40 @@
+
+#include <m_LCD.h>
+
+
+LCD mLCD;
+
+void setup(){
+  int port[] = {12,8, 7, 2, 3, 4, 5};
+  mLCD.initializaton(port, 0);
+  
+  mLCD.defineChar(1, "fff");
+}
+
+void loop(){
+  
+  char le[37] = "123456789123456789123456789123456789"; le[36] = '\0';
+  char le2[8] = "Boomba!"; le2[7] = '\0';
+  char le3[13] = "Zigbee 4ever"; le3[12] = '\0';
+  mLCD.cleanDisplay();
+
+  mLCD.displayOn();
+  mLCD.defineChar(1, "fff");
+  mLCD.setCursorPostion(0x40);
+  
+  mLCD.charWrite(0x00);
+  mLCD.charWrite(0x01);
+  mLCD.charWrite(0x02);
+  mLCD.charWrite(0x03);
+  mLCD.charWrite(0x04);
+  mLCD.charWrite(0x05);
+  mLCD.charWrite(0x06);
+  mLCD.charWrite(0x07);
+
+  delay(2000);
+  mLCD.displayOff();
+
+  
+  delay(2000);
+  
+}
