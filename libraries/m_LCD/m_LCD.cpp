@@ -10,7 +10,7 @@
 			busMode = eightBus;
 
 			RS = port[0];
-			RW = port[1];
+			RW = port[1];//
 			E = port[2];
 
 			if(eightBus == 1){
