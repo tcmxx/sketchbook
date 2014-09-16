@@ -86,6 +86,14 @@ class LCD{
 		//Shift the cursor right
 		void shiftCursorRight();
 
+		//dispLeftToRight()
+		//set the display mode to be from left to right, which means the cursor position will automatically move to left by one after each write of character
+		void dispLeftToRight();
+
+		//dispRightToLeft()
+		//set the display mode to be from left to right, which means the cursor position will automatically move to right by one after each write of character
+		void dispRightToLeft();
+
 		//charWrite(char)
 		//write a character at current currsor postion
 		//c: the desired character to be written. If c is a printable char, show it. If not a printable char, showing corresponding character in CGROM. 

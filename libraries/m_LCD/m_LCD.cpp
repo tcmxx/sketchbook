@@ -181,6 +181,16 @@
 		}
 
 
+		void LCD::dispLeftToRight(){
+			cmdWrite(0x02);
+			delay(40);
+		}
+
+		
+		void LCD::dispRightToLeft(){
+			cmdWrite(0x00);
+			delay(40);
+		}
 
 		//write a character at current currsor postion
 		//The character  wriiten is decided by CGROM address
