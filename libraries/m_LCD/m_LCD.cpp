@@ -141,6 +141,8 @@
 			delayMicroseconds(40);
 		}
 		void LCD::setCursorPostion(uint_8 line, uint_8 pos){
+			if (line>2 || pos>0x40)
+				return;
 			unsigned char address = line*0x40 + pos;
 			setCursorPostion(address);
 		};
@@ -176,7 +178,7 @@
 			}
 		};
 
-		void  LCD::defineChar(int num, char data[]){
+		void  LCD::defineChar(int num, uint_8 data[]){
 	  		unsigned char addr = 0x40;
 	  		if(num<0 || num >7) return;
 			for(int i = 0; i < num; i++){
@@ -287,7 +289,7 @@
 		
 
 
-		bool LCD::isBuzy(){
+		bool LCD::isBusy(){
 			digitalWrite(RS,0);
 			digitalWrite(RW,1);
 			pinMode(DB7, INPUT);

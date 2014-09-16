@@ -95,21 +95,35 @@ class LCD{
 		//num: 0-7, address of customized char
 		//data: Pattern of user defined char.
 		//		data should be a 7 bytes long array, each array entry corresponds to one line of charater going into CGRAM
-		void defineChar(int num, char data[]);
+		void defineChar(int num, uint_8 data[]);
 		
 
 
 	private:
-		//
+		//cmdWrite(unsigned char)
+		//write cmd to LCD
+		//cmd: cmd code
 		void cmdWrite(unsigned char cmd);
+
+		//dataWrite(unsigned char)
+		//write data to LCD
+		//data: data to bw written
 		void dataWrite(unsigned char data);
+
+
 		void cmdWrite4(unsigned char cmd);
-		bool isBuzy();
+
+		bool isBusy();
+
+		//busMode: 1 eightBus mode；0 fourBus mode
 		bool busMode;
-		
+		//RW: 1 Read, 0 write
 		int RW;
+		//RS: 1 write as data; 0 write as command
 		int RS;
+		//E: Enable 
 		int E;
+		//DB7-DB0: data bus ports
 		int DB0;
 		int DB1;
 		int DB2;
@@ -118,7 +132,7 @@ class LCD{
 		int DB5;
 		int DB6;
 		int DB7;
-
+		//current cursor Mode
 		CURSOR_MODE curCurMode;
 		//void gotoDDRAM(uint_8 addr);
 };
