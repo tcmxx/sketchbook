@@ -67,10 +67,28 @@ class LCD{
 		//line: line number of desired cursor position(1 or 2)
 		//pos:  position (from left to right) of desired cursor position in that line (0 - 0x39)
 		void setCursorPostion(uint_8 line, uint_8 pos);
-		
+		//cursorHome()
+		//Set position of the cursor to home(Upper left corner) and return any shift
+		void cursorHome();
+
+		//shiftDisplayLeft()
+		//Shift all display left(Both lines with cursor)
+		void shiftDisplayLeft();
+
+		//shiftDisplayRight()
+		//Shift all display right(Both lines with cursor)
+		void shiftDisplayRight();
+		//shiftCursorLeft()
+		//Shift the cursor left
+		void shiftCursorLeft();
+
+		//shiftCursorRight()
+		//Shift the cursor right
+		void shiftCursorRight();
+
 		//charWrite(char)
 		//write a character at current currsor postion
-		//c: the desired character to be written. If c is a printable char, show it. If not a printable char, showing corresponding character in CGROM 
+		//c: the desired character to be written. If c is a printable char, show it. If not a printable char, showing corresponding character in CGROM. 
 		void charWrite(char c);
 		
 		//stringWrite(char[])
@@ -92,9 +110,9 @@ class LCD{
 		
 		//defineChar(num,data)
 		//Define a customized character and store in CGRAM (only support first 8 positons in CGROM)
-		//num: 0-7, address of customized char
+		//num: 0-7, address of customized char. 
 		//data: Pattern of user defined char.
-		//		data should be a 7 bytes long array, each array entry corresponds to one line of charater going into CGRAM
+		//		data should be a 7 bytes long array, each array entry corresponds to one line of charater going into CGRAM. To use the defined char, use the your input num as the parameter to represent the character in charWrite(char) or stringWrite(char[] )
 		void defineChar(int num, uint_8 data[]);
 		
 

@@ -147,6 +147,41 @@
 			setCursorPostion(address);
 		};
 		
+		void LCD::cursorHome(){
+			cmdWrite(0x02);
+			delay(2);
+		}
+
+		//shiftDisplayLeft()
+		//Shift all display left(Both lines with cursor)
+		void LCD::shiftDisplayLeft(){
+			cmdWrite(0x10);
+			delay(40);
+		}
+
+		//shiftDisplayRight()
+		//Shift all display right(Both lines with cursor)
+		void LCD::shiftDisplayRight(){
+			cmdWrite(0x14);
+			delay(40);
+		}
+
+		//shiftCursorLeft()
+		//Shift the cursor left
+		void LCD::shiftCursorLeft(){
+			cmdWrite(0x18);
+			delay(40);
+		}
+
+		//shiftCursorRight()
+		//Shift the cursor right
+		void LCD::shiftCursorRight(){
+			cmdWrite(0x1c);
+			delay(40);
+		}
+
+
+
 		//write a character at current currsor postion
 		//The character  wriiten is decided by CGROM address
 		void LCD::charWrite(char c){
@@ -154,7 +189,7 @@
 			delayMicroseconds(40);
 		};
 
-	
+
 
 		//Write a string onto LCD starting current postion
 		void LCD::stringWrite(char s[]){
@@ -293,9 +328,9 @@
 
 
 		bool LCD::isBusy(){
+			pinMode(DB7, INPUT);
 			digitalWrite(RS,0);
 			digitalWrite(RW,1);
-			pinMode(DB7, INPUT);
 			int val = digitalRead(DB7);
 			pinMode(DB7, OUTPUT);
 			if(val == HIGH){
