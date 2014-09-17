@@ -1,14 +1,19 @@
+//Author: Xiaoxiao Ma, Yi Cui
+//Date  : Sept 16, 2014
 
 #ifndef LCD_H
 #define LCD_H
 
 #define uint_8 unsigned char
-//#define RW 8
-//#define RS 9
-//#define E  10
-//#define DB PORTD
-//#define busyBit 7
 enum CURSOR_MODE { CURSOR_ON, CURSOR_OFF, CURSOR_BLINK};
+
+
+//LCD class serving as interface for HD44780 LCD on Arduino platform
+//Call initialization(int[], bool) before use
+//all printable characters supported, check HD44780 datasheet for other characters. You can define charater if not in the CGROM
+//All functions are called involves certain amount of delay. Make sure your application could afford that before function call
+//Calling such functions in ISR is a bad idea 
+//cleanDisplay() and cursorHome() delay 2ms, other cmd delay 40us
 
 class LCD{
 	public:
@@ -91,7 +96,7 @@ class LCD{
 		void dispLeftToRight();
 
 		//dispRightToLeft()
-		//set the display mode to be from left to right, which means the cursor position will automatically move to right by one after each write of character
+		//set the display mode to be from right to left, which means the cursor position will automatically move to right by one after each write of character
 		void dispRightToLeft();
 
 		//charWrite(char)

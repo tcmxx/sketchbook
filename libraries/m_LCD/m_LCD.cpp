@@ -156,40 +156,40 @@
 		//Shift all display left(Both lines with cursor)
 		void LCD::shiftDisplayLeft(){
 			cmdWrite(0x10);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 		//shiftDisplayRight()
 		//Shift all display right(Both lines with cursor)
 		void LCD::shiftDisplayRight(){
 			cmdWrite(0x14);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 		//shiftCursorLeft()
 		//Shift the cursor left
 		void LCD::shiftCursorLeft(){
 			cmdWrite(0x18);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 		//shiftCursorRight()
 		//Shift the cursor right
 		void LCD::shiftCursorRight(){
 			cmdWrite(0x1c);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 
 		void LCD::dispLeftToRight(){
 			cmdWrite(0x02);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 		
 		void LCD::dispRightToLeft(){
 			cmdWrite(0x00);
-			delay(40);
+			delayMicroseconds(40);
 		}
 
 		//write a character at current currsor postion
